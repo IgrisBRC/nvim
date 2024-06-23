@@ -32,7 +32,6 @@ local opts = {
     },
 }
 
--- format using lsp
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
@@ -56,4 +55,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
     end,
 })
--- format using lsp 
