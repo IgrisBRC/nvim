@@ -39,6 +39,9 @@ local plugins = {
     {
         'hrsh7th/vim-vsnip'
     },
+    {
+        'm4xshen/autoclose.nvim'
+    }
 }
 
 require("lazy").setup(plugins, opts)

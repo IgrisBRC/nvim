@@ -1,4 +1,4 @@
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 cmp.setup({
     snippet = {
@@ -44,7 +44,7 @@ cmp.setup({
         { name = 'buffer' },
     })
 })
-require("cmp_git").setup() ]]-- 
+require("cmp_git").setup() ]] --
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
@@ -86,7 +86,15 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
-
 lspconfig.lua_ls.setup {
+    capabilities = capabilities
+}
+
+lspconfig.emmet_ls.setup {
+    capabilities = capabilities
+}
+
+
+lspconfig.gopls.setup {
     capabilities = capabilities
 }
