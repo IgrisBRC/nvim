@@ -98,3 +98,11 @@ lspconfig.emmet_ls.setup {
 lspconfig.gopls.setup {
     capabilities = capabilities
 }
+
+lspconfig.jdtls.setup {
+    capabilities = capabilities
+}
+
+lspconfig.kotlin_language_server.setup {
+    capabilities = capabilities
+}
