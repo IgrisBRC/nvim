@@ -3,17 +3,46 @@ return {
         "neovim/nvim-lspconfig",
         config = function ()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            require'lspconfig'.clangd.setup {
-                capabilities = capabilities
-            }
 
-            require'lspconfig'.gopls.setup {
+            vim.lsp.config('clangd', {
                 capabilities = capabilities
-            }
+            })
 
-            require'lspconfig'.lua_ls.setup {
+            vim.lsp.enable('clangd')
+
+            vim.lsp.config('rust_analyzer', {
                 capabilities = capabilities
-            }
+            })
+
+            vim.lsp.enable('rust_analyzer')
+
+            vim.lsp.config('gopls', {
+                capabilities = capabilities
+            })
+
+            vim.lsp.enable('gopls')
+            
+            vim.lsp.config('lua_ls', {
+                capabilities = capabilities
+            })
+
+            vim.lsp.enable('lua_ls')
+
+            -- require'lspconfig'.clangd.setup {
+            --     capabilities = capabilities
+            -- }
+            --
+            -- require'lspconfig'.rust_analyzer.setup {
+            --     capabilities = capabilities
+            -- }
+            --
+            -- require'lspconfig'.gopls.setup {
+            --     capabilities = capabilities
+            -- }
+            --
+            -- require'lspconfig'.lua_ls.setup {
+            --     capabilities = capabilities
+            -- }
 
             vim.diagnostic.config({virtual_text = true})
             vim.diagnostic.enable()
