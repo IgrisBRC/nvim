@@ -5,7 +5,7 @@ return {
     {"hrsh7th/nvim-cmp"},
     {
         "L3MON4D3/LuaSnip",
-        version = "v2.*", 
+        version = "v2.*",
         build = "make install_jsregexp"
     },
     {
@@ -16,7 +16,7 @@ return {
             cmp.setup({
                 snippet = {
                     expand = function(args)
-                        require('luasnip').lsp_expand(args.body) 
+                        require('luasnip').lsp_expand(args.body)
                     end,
                 },
                 window = {

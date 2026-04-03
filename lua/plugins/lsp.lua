@@ -1,7 +1,9 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        config = function ()
+        config = function()
+            local lspconfig = require('lspconfig')
+
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             vim.lsp.config('clangd', {
@@ -16,17 +18,34 @@ return {
 
             vim.lsp.enable('rust_analyzer')
 
+
             vim.lsp.config('gopls', {
                 capabilities = capabilities
             })
 
             vim.lsp.enable('gopls')
-            
+
             vim.lsp.config('lua_ls', {
                 capabilities = capabilities
             })
 
             vim.lsp.enable('lua_ls')
+
+
+            vim.lsp.config('ts_ls', {
+                capabilities = capabilities,
+                root_markers = { "package.json" },
+                filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
+            })
+
+            vim.lsp.enable('ts_ls')
+
+            vim.lsp.config('emmet_language_server', {
+                capabilities = capabilities,
+                filetypes = { "css", "html", "javascript", "javascriptreact", "less", "sass", "scss", "typescriptreact" },
+            })
+
+            vim.lsp.enable('emmet_language_server')
 
             -- require'lspconfig'.clangd.setup {
             --     capabilities = capabilities
@@ -44,7 +63,7 @@ return {
             --     capabilities = capabilities
             -- }
 
-            vim.diagnostic.config({virtual_text = true})
+            vim.diagnostic.config({ virtual_text = true })
             vim.diagnostic.enable()
             vim.keymap.set('n', 'E', vim.diagnostic.open_float, { desc = 'Show diagnostic float' })
 
@@ -74,5 +93,3 @@ return {
         end
     }
 }
-
-
